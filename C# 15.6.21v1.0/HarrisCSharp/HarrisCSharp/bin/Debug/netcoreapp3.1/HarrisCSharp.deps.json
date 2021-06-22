@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "HarrisCSharp/1.0.0": {
+        "runtime": {
+          "HarrisCSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HarrisCSharp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

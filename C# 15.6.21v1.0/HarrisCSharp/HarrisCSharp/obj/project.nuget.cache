@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "dTLXjCmUxzJDie4f3VoTB8DF9sBa1dnr270gYNhhkff7Db33wlyT7PTx3wnxDQ5EYQqHP4sd7HD1slew48HUkw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jordan Adamson\\Documents\\Coventry University\\509IT 2nd Resit Assignment\\C#\\C# 15.6.21v1.0\\HarrisCSharp\\HarrisCSharp\\HarrisCSharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jordan Adamson\\.nuget\\packages\\mysqlclient\\5.4.2\\mysqlclient.5.4.2.nupkg.sha512",
+    "C:\\Users\\Jordan Adamson\\.nuget\\packages\\mysqlconnector\\1.3.9\\mysqlconnector.1.3.9.nupkg.sha512",
+    "C:\\Users\\Jordan Adamson\\.nuget\\packages\\optimizeddatareader\\1.1.0\\optimizeddatareader.1.1.0.nupkg.sha512",
+    "C:\\Users\\Jordan Adamson\\.nuget\\packages\\savage.data\\5.4.2\\savage.data.5.4.2.nupkg.sha512"
+  ],
+  "logs": []
+}

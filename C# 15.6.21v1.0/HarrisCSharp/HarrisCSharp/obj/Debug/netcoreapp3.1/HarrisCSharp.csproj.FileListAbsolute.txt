@@ -1,0 +1,17 @@
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\bin\Debug\netcoreapp3.1\HarrisCSharp.exe
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\bin\Debug\netcoreapp3.1\HarrisCSharp.deps.json
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\bin\Debug\netcoreapp3.1\HarrisCSharp.runtimeconfig.json
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\bin\Debug\netcoreapp3.1\HarrisCSharp.runtimeconfig.dev.json
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\bin\Debug\netcoreapp3.1\HarrisCSharp.dll
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\bin\Debug\netcoreapp3.1\HarrisCSharp.pdb
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.csproj.AssemblyReference.cache
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.BusinessContacts.resources
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.MainMenu.resources
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.PersonalContacts.resources
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.csproj.GenerateResource.cache
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.AssemblyInfoInputs.cache
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.AssemblyInfo.cs
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.dll
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.pdb
+C:\Users\Jordan Adamson\Documents\Coventry University\509IT 2nd Resit Assignment\C#\C# 15.6.21\HarrisCSharp\HarrisCSharp\obj\Debug\netcoreapp3.1\HarrisCSharp.genruntimeconfig.cache
