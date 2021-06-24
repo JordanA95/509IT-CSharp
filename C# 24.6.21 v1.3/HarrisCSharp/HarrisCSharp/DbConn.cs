@@ -11,7 +11,7 @@ namespace HarrisCSharp
 {
     public class DbConn
     {
-        private string connstring = "server=harris.cxw8qnxlxaco.us-east-1.rds.amazonaws.com;User ID=admin;password=Harrisandsons;Database=harris";
+        private string connstring = "server=harris.cxw8qnxlxaco.us-east-1.rds.amazonaws.com; Port=3306; Database=harris; User ID=admin; Password=Harrisandsons";
 
         public DataTable GetAllPersonal()
         {
@@ -20,7 +20,7 @@ namespace HarrisCSharp
                 conn.Open();
                 DataTable personalContactDt = new DataTable();
                 List<PersonalContact> personalContacts = new List<PersonalContact>();
-                using (var cmd = new MySqlCommand("CALL selectAllPersonal();", conn))
+                using (var cmd = new MySqlCommand("CALL GetAllPersonal();", conn))
 
                     using (var reader = cmd.ExecuteReader())
                         while (reader.Read())
@@ -58,6 +58,7 @@ namespace HarrisCSharp
                     row["ContactAddr1"] = item.ContactAddr1;
                     row["ContactAddr2"] = item.ContactAddr2;
                     row["ContactCity"] = item.ContactCity;
+                    row["ContactPostcode"] = item.ContactPostcode;
 
                     personalContactDt.Rows.Add(row);
                 }
@@ -72,7 +73,7 @@ namespace HarrisCSharp
                 conn.Open();
                 DataTable businessContactDt = new DataTable();
                 List<BusinessContact> businessContacts = new List<BusinessContact>();
-                using (var cmd = new MySqlCommand("CALL selectAllBusiness();", conn))
+                using (var cmd = new MySqlCommand("CALL GetAllBusiness();", conn))
 
                     using (var reader = cmd.ExecuteReader())
                     while (reader.Read())

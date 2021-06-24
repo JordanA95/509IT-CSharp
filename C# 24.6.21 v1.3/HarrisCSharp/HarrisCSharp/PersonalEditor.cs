@@ -75,22 +75,9 @@ namespace HarrisCSharp
             personalContact.ContactAddr2 = personaladdrline2txb.Text;
             personalContact.ContactCity = personalcitytxb.Text;
             personalContact.ContactPostcode = personalpostcodetxb.Text;
-            dbConn.InsertPersonal(personalContact);
+            dbConn.UpdatePersonal(personalContact);
             personaldgv.DataSource = dbConn.GetAllPersonal();
-
             int index = Int32.Parse(personaldgv.SelectedCells[0].Value.ToString());
-            BusinessContact BusinessContact = new BusinessContact();
-            personalContact.ContactID = index;
-            personalContact.ContactFName = personalfnametxb.Text;
-            personalContact.ContactLName = personallnametxb.Text;
-            personalContact.ContactPersonalTel = personalphonetxb.Text;
-            personalContact.ContactEmail = personalemailtxb.Text;
-            personalContact.ContactAddr1 = personaladdrline1txb.Text;
-            personalContact.ContactAddr2 = personaladdrline2txb.Text;
-            personalContact.ContactCity = personalcitytxb.Text;
-            personalContact.ContactPostcode = personalpostcodetxb.Text;
-            //dbConn.UpdatePersonal(PersonalContact);
-            personaldgv.DataSource = dbConn.GetAllPersonal();
         }
 
         private void deletepersonalbtn_Click(object sender, EventArgs e)

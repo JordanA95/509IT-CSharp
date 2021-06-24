@@ -52,7 +52,7 @@ namespace HarrisCSharp
             businessContact.ContactCity = businesscitytxb.Text;
             businessContact.ContactPostcode = businesspostcodetxb.Text;
             dbConn.InsertBusiness(businessContact);
-            businessdgv.DataSource = dbConn.GetAllPersonal();
+            businessdgv.DataSource = dbConn.GetAllBusiness();
 
             businessfnametxb.Text = string.Empty;
             businesslnametxb.Text = string.Empty;
@@ -75,22 +75,9 @@ namespace HarrisCSharp
             businessContact.ContactAddr2 = businessaddrline2txb.Text;
             businessContact.ContactCity = businesscitytxb.Text;
             businessContact.ContactPostcode = businesspostcodetxb.Text;
-            dbConn.InsertBusiness(businessContact);
-            businessdgv.DataSource = dbConn.GetAllPersonal();
-
+            dbConn.UpdateBusiness(businessContact);
+            businessdgv.DataSource = dbConn.GetAllBusiness();
             int index = Int32.Parse(businessdgv.SelectedCells[0].Value.ToString());
-            BusinessContact BusinessContact = new BusinessContact();
-            businessContact.ContactID = index;
-            businessContact.ContactFName = businessfnametxb.Text;
-            businessContact.ContactLName = businesslnametxb.Text;
-            businessContact.ContactBusinessTel = businessphonetxb.Text;
-            businessContact.ContactEmail = businessemailtxb.Text;
-            businessContact.ContactAddr1 = businessaddrline1txb.Text;
-            businessContact.ContactAddr2 = businessaddrline2txb.Text;
-            businessContact.ContactCity = businesscitytxb.Text;
-            businessContact.ContactPostcode = businesspostcodetxb.Text;
-            //dbConn.UpdatePersonal(BusinessContact);
-            businessdgv.DataSource = dbConn.GetAllPersonal();
         }
 
         private void deletebusinessbtn_Click(object sender, EventArgs e)
