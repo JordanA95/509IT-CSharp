@@ -4,6 +4,7 @@ using System.Text;
 
 namespace HarrisCSharp
 {
+    //C# Contact Class for specifying all fields that appear in both Business and Personal Contact tables in the database.
     public abstract class Contact
     {
         public int ContactID { get; set; }

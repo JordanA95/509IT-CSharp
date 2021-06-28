@@ -11,8 +11,10 @@ namespace HarrisCSharp
 {
     public class DbConn
     {
+        //Database connection string for connecting to the AWS harris Database instance.
         private string connstring = "server=harris.cxw8qnxlxaco.us-east-1.rds.amazonaws.com; Port=3306; Database=harris; User ID=admin; Password=Harrisandsons";
 
+        //Stored procedure for getting all Personal contacts stored in the database.
         public DataTable GetAllPersonal()
         {
             using (var conn = new MySqlConnection(connstring))
@@ -66,6 +68,7 @@ namespace HarrisCSharp
             }
         }
 
+        //Stored procedure for getting all Business contacts stored in the database.
         public DataTable GetAllBusiness()
         {
             using (var conn = new MySqlConnection(connstring))
@@ -117,6 +120,7 @@ namespace HarrisCSharp
                 return businessContactDt;
             }
         }
+        //Stored procedure for inserting a new Personal contact into the database.
         public async void InsertPersonal(PersonalContact personalContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -139,6 +143,7 @@ namespace HarrisCSharp
             }
         }
 
+        //Stored procedure for inserting a new Business contact into the database.
         public async void InsertBusiness(BusinessContact businessContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -161,6 +166,7 @@ namespace HarrisCSharp
             }
         }
 
+        //Stored procedure for updating an existing Personal contact in the database.
         public async void UpdatePersonal(PersonalContact personalContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -184,6 +190,7 @@ namespace HarrisCSharp
             }
         }
 
+        //Stored procedure for updating an existing Business contact in the database.
         public async void UpdateBusiness(BusinessContact businessContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -207,6 +214,7 @@ namespace HarrisCSharp
             }
         }
 
+        //Stored procedure for deleting a Personal contact from the database using the id value.
         public async void DeletePersonal(int id)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -222,6 +230,7 @@ namespace HarrisCSharp
             }
         }
 
+        //Stored procedure for deleting a Business contact from the database using the id value.
         public void DeleteBusiness(int id)
         {
             using (var conn = new MySqlConnection(connstring))

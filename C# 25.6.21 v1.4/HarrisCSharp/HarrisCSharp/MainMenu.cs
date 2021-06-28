@@ -18,12 +18,14 @@ namespace HarrisCSharp
             InitializeComponent();
         }
 
+        //Button to open the PersonalEditor form.
         private void personalbtn_Click(object sender, EventArgs e)
         {
             PersonalEditor personal = new PersonalEditor();
             personal.Show();
         }
 
+        //Button to open the BusinessEditor form.
         private void businessbtn_Click(object sender, EventArgs e)
         {
             BusinessEditor business = new BusinessEditor();

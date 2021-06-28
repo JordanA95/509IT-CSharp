@@ -11,6 +11,7 @@ namespace HarrisCSharp
     public partial class PersonalEditor : Form
     {
 
+        //Initialise DbConn for database connection
         DbConn dbConn = new DbConn();
 
         public PersonalEditor()
