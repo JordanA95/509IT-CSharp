@@ -44,12 +44,12 @@ namespace HarrisCSharp
         private void addpersonalbtn_Click(object sender, EventArgs e)
         {
             PersonalContact personalContact = new PersonalContact();
-            personalContact.ContactFName = personalfnametxb.Text;
-            personalContact.ContactLName = personallnametxb.Text;
+            personalContact.ContactFirstName = personalfnametxb.Text;
+            personalContact.ContactLastName = personallnametxb.Text;
             personalContact.ContactPersonalTel = personalphonetxb.Text;
             personalContact.ContactEmail = personalemailtxb.Text;
-            personalContact.ContactAddr1 = personaladdrline1txb.Text;
-            personalContact.ContactAddr2 = personaladdrline2txb.Text;
+            personalContact.ContactAddressLine1 = personaladdrline1txb.Text;
+            personalContact.ContactAddressLine2 = personaladdrline2txb.Text;
             personalContact.ContactCity = personalcitytxb.Text;
             personalContact.ContactPostcode = personalpostcodetxb.Text;
             dbConn.InsertPersonal(personalContact);
@@ -68,12 +68,12 @@ namespace HarrisCSharp
         private void updatepersonalbtn_Click(object sender, EventArgs e)
         {
             PersonalContact personalContact = new PersonalContact();
-            personalContact.ContactFName = personalfnametxb.Text;
-            personalContact.ContactLName = personallnametxb.Text;
+            personalContact.ContactFirstName = personalfnametxb.Text;
+            personalContact.ContactLastName = personallnametxb.Text;
             personalContact.ContactPersonalTel = personalphonetxb.Text;
             personalContact.ContactEmail = personalemailtxb.Text;
-            personalContact.ContactAddr1 = personaladdrline1txb.Text;
-            personalContact.ContactAddr2 = personaladdrline2txb.Text;
+            personalContact.ContactAddressLine1 = personaladdrline1txb.Text;
+            personalContact.ContactAddressLine2 = personaladdrline2txb.Text;
             personalContact.ContactCity = personalcitytxb.Text;
             personalContact.ContactPostcode = personalpostcodetxb.Text;
             dbConn.UpdatePersonal(personalContact);

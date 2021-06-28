@@ -29,14 +29,15 @@ namespace HarrisCSharp
                         {
                             personalContacts.Add(new PersonalContact
                             {
-                                ContactID = reader.GetInt32(0),
-                                ContactFName = reader.GetString(1),
-                                ContactLName = reader.GetString(2),
+                                ContactID = reader.GetString(0),
+                                ContactFirstName = reader.GetString(1),
+                                ContactLastName = reader.GetString(2),
                                 ContactEmail = reader.GetString(3),
-                                ContactAddr1 = reader.GetString(4),
-                                ContactAddr2 = reader.GetString(5),
+                                ContactAddressLine1 = reader.GetString(4),
+                                ContactAddressLine2 = reader.GetString(5),
                                 ContactCity = reader.GetString(6),
                                 ContactPostcode = reader.GetString(7),
+                                ContactPersonalTel = reader.GetString(8),
                             });
                         }
                 personalContactDt.Columns.Add("ContactID");
@@ -47,20 +48,21 @@ namespace HarrisCSharp
                 personalContactDt.Columns.Add("ContactAddressLine2");
                 personalContactDt.Columns.Add("ContactCity");
                 personalContactDt.Columns.Add("ContactPostcode");
+                personalContactDt.Columns.Add("ContactPersonalTel");
 
                 foreach (var item in personalContacts)
                 {
                     var row = personalContactDt.NewRow();
 
                     row["ContactID"] = item.ContactID;
-                    row["ContactFName"] = item.ContactFName;
-                    row["ContactLName"] = item.ContactLName;
-                    row["ContactpersonalTel"] = item.ContactPersonalTel;
+                    row["ContactFirstName"] = item.ContactFirstName;
+                    row["ContactLastName"] = item.ContactLastName;
                     row["ContactEmail"] = item.ContactEmail;
-                    row["ContactAddr1"] = item.ContactAddr1;
-                    row["ContactAddr2"] = item.ContactAddr2;
+                    row["ContactAddressLine1"] = item.ContactAddressLine1;
+                    row["ContactAddressLine2"] = item.ContactAddressLine2;
                     row["ContactCity"] = item.ContactCity;
                     row["ContactPostcode"] = item.ContactPostcode;
+                    row["ContactpersonalTel"] = item.ContactPersonalTel;
 
                     personalContactDt.Rows.Add(row);
                 }
@@ -83,14 +85,15 @@ namespace HarrisCSharp
                     {
                         businessContacts.Add(new BusinessContact
                         {
-                            ContactID = reader.GetInt32(0),
-                            ContactFName = reader.GetString(1),
-                            ContactLName = reader.GetString(2),
+                            ContactID = reader.GetString(0),
+                            ContactFirstName = reader.GetString(1),
+                            ContactLastName = reader.GetString(2),
                             ContactEmail = reader.GetString(3),
-                            ContactAddr1 = reader.GetString(4),
-                            ContactAddr2 = reader.GetString(5),
+                            ContactAddressLine1 = reader.GetString(4),
+                            ContactAddressLine2 = reader.GetString(5),
                             ContactCity = reader.GetString(6),
                             ContactPostcode = reader.GetString(7),
+                            ContactBusinessTel = reader.GetString(8),
                         });
                     }
                 businessContactDt.Columns.Add("ContactID");
@@ -101,19 +104,22 @@ namespace HarrisCSharp
                 businessContactDt.Columns.Add("ContactAddressLine2");
                 businessContactDt.Columns.Add("ContactCity");
                 businessContactDt.Columns.Add("ContactPostcode");
+                businessContactDt.Columns.Add("ContactBusinessTel");
 
                 foreach (var item in businessContacts)
                 {
                     var row = businessContactDt.NewRow();
 
                     row["ContactID"] = item.ContactID;
-                    row["ContactFName"] = item.ContactFName;
-                    row["ContactLName"] = item.ContactLName;
+                    row["ContactFirstName"] = item.ContactFirstName;
+                    row["ContactLastName"] = item.ContactLastName;
                     row["ContactBusinessTel"] = item.ContactBusinessTel; ;
                     row["ContactEmail"] = item.ContactEmail;
-                    row["ContactAddr1"] = item.ContactAddr1;
-                    row["ContactAddr2"] = item.ContactAddr2;
+                    row["ContactAddressLine1"] = item.ContactAddressLine1;
+                    row["ContactAddressline2"] = item.ContactAddressLine2;
                     row["ContactCity"] = item.ContactCity;
+                    row["ContactPostcode"] = item.ContactPostcode;
+                    row["ContactBusinessTel"] = item.ContactBusinessTel;
 
                     businessContactDt.Rows.Add(row);
                 }
@@ -130,12 +136,12 @@ namespace HarrisCSharp
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "CALL insertPersonal(@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);";
-                    cmd.Parameters.AddWithValue("p1", personalContact.ContactFName);
-                    cmd.Parameters.AddWithValue("p2", personalContact.ContactLName);
+                    cmd.Parameters.AddWithValue("p1", personalContact.ContactFirstName);
+                    cmd.Parameters.AddWithValue("p2", personalContact.ContactLastName);
                     cmd.Parameters.AddWithValue("p3", personalContact.ContactPersonalTel);
                     cmd.Parameters.AddWithValue("p4", personalContact.ContactEmail);
-                    cmd.Parameters.AddWithValue("p5", personalContact.ContactAddr1);
-                    cmd.Parameters.AddWithValue("p6", personalContact.ContactAddr2);
+                    cmd.Parameters.AddWithValue("p5", personalContact.ContactAddressLine1);
+                    cmd.Parameters.AddWithValue("p6", personalContact.ContactAddressLine2);
                     cmd.Parameters.AddWithValue("p7", personalContact.ContactCity);
                     cmd.Parameters.AddWithValue("p8", personalContact.ContactPostcode);
                     await cmd.ExecuteNonQueryAsync();
@@ -153,12 +159,12 @@ namespace HarrisCSharp
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "CALL insertBusiness(@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);";
-                    cmd.Parameters.AddWithValue("p1", businessContact.ContactFName);
-                    cmd.Parameters.AddWithValue("p2", businessContact.ContactLName);
+                    cmd.Parameters.AddWithValue("p1", businessContact.ContactFirstName);
+                    cmd.Parameters.AddWithValue("p2", businessContact.ContactLastName);
                     cmd.Parameters.AddWithValue("p3", businessContact.ContactBusinessTel);
                     cmd.Parameters.AddWithValue("p4", businessContact.ContactEmail);
-                    cmd.Parameters.AddWithValue("p5", businessContact.ContactAddr1);
-                    cmd.Parameters.AddWithValue("p6", businessContact.ContactAddr2);
+                    cmd.Parameters.AddWithValue("p5", businessContact.ContactAddressLine1);
+                    cmd.Parameters.AddWithValue("p6", businessContact.ContactAddressLine2);
                     cmd.Parameters.AddWithValue("p7", businessContact.ContactCity);
                     cmd.Parameters.AddWithValue("p8", businessContact.ContactPostcode);
                     await cmd.ExecuteNonQueryAsync();
@@ -177,12 +183,12 @@ namespace HarrisCSharp
                     cmd.Connection = conn;
                     cmd.CommandText = "CALL updatePersonal(@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);";
                     cmd.Parameters.AddWithValue("p1", personalContact.ContactID);
-                    cmd.Parameters.AddWithValue("p2", personalContact.ContactFName);
-                    cmd.Parameters.AddWithValue("p3", personalContact.ContactLName);
+                    cmd.Parameters.AddWithValue("p2", personalContact.ContactFirstName);
+                    cmd.Parameters.AddWithValue("p3", personalContact.ContactLastName);
                     cmd.Parameters.AddWithValue("p4", personalContact.ContactPersonalTel);
                     cmd.Parameters.AddWithValue("p5", personalContact.ContactEmail);
-                    cmd.Parameters.AddWithValue("p6", personalContact.ContactAddr1);
-                    cmd.Parameters.AddWithValue("p7", personalContact.ContactAddr2);
+                    cmd.Parameters.AddWithValue("p6", personalContact.ContactAddressLine1);
+                    cmd.Parameters.AddWithValue("p7", personalContact.ContactAddressLine2);
                     cmd.Parameters.AddWithValue("p8", personalContact.ContactCity);
                     cmd.Parameters.AddWithValue("p9", personalContact.ContactPostcode);
                     await cmd .ExecuteNonQueryAsync();
@@ -201,12 +207,12 @@ namespace HarrisCSharp
                     cmd.Connection = conn;
                     cmd.CommandText = "CALL updateBusiness(@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);";
                     cmd.Parameters.AddWithValue("p1", businessContact.ContactID);
-                    cmd.Parameters.AddWithValue("p2", businessContact.ContactFName);
-                    cmd.Parameters.AddWithValue("p3", businessContact.ContactLName);
+                    cmd.Parameters.AddWithValue("p2", businessContact.ContactFirstName);
+                    cmd.Parameters.AddWithValue("p3", businessContact.ContactLastName);
                     cmd.Parameters.AddWithValue("p4", businessContact.ContactBusinessTel);
                     cmd.Parameters.AddWithValue("p5", businessContact.ContactEmail);
-                    cmd.Parameters.AddWithValue("p6", businessContact.ContactAddr1);
-                    cmd.Parameters.AddWithValue("p7", businessContact.ContactAddr2);
+                    cmd.Parameters.AddWithValue("p6", businessContact.ContactAddressLine1);
+                    cmd.Parameters.AddWithValue("p7", businessContact.ContactAddressLine2);
                     cmd.Parameters.AddWithValue("p8", businessContact.ContactCity);
                     cmd.Parameters.AddWithValue("p9", businessContact.ContactPostcode);
                     await cmd.ExecuteNonQueryAsync();

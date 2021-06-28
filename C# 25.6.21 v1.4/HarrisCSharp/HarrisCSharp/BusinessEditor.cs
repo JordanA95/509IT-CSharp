@@ -43,12 +43,12 @@ namespace HarrisCSharp
         private void addbusinessbtn_Click(object sender, EventArgs e)
         {
             BusinessContact businessContact = new BusinessContact();
-            businessContact.ContactFName = businessfnametxb.Text;
-            businessContact.ContactLName = businesslnametxb.Text;
+            businessContact.ContactFirstName = businessfnametxb.Text;
+            businessContact.ContactLastName = businesslnametxb.Text;
             businessContact.ContactBusinessTel = businessphonetxb.Text;
             businessContact.ContactEmail = businessemailtxb.Text;
-            businessContact.ContactAddr1 = businessaddrline1txb.Text;
-            businessContact.ContactAddr2 = businessaddrline2txb.Text;
+            businessContact.ContactAddressLine1 = businessaddrline1txb.Text;
+            businessContact.ContactAddressLine2 = businessaddrline2txb.Text;
             businessContact.ContactCity = businesscitytxb.Text;
             businessContact.ContactPostcode = businesspostcodetxb.Text;
             dbConn.InsertBusiness(businessContact);
@@ -67,12 +67,12 @@ namespace HarrisCSharp
         private void updatebusinessbtn_Click(object sender, EventArgs e)
         {
             BusinessContact businessContact = new BusinessContact();
-            businessContact.ContactFName = businessfnametxb.Text;
-            businessContact.ContactLName = businesslnametxb.Text;
+            businessContact.ContactFirstName = businessfnametxb.Text;
+            businessContact.ContactLastName = businesslnametxb.Text;
             businessContact.ContactBusinessTel = businessphonetxb.Text;
             businessContact.ContactEmail = businessemailtxb.Text;
-            businessContact.ContactAddr1 = businessaddrline1txb.Text;
-            businessContact.ContactAddr2 = businessaddrline2txb.Text;
+            businessContact.ContactAddressLine1 = businessaddrline1txb.Text;
+            businessContact.ContactAddressLine2 = businessaddrline2txb.Text;
             businessContact.ContactCity = businesscitytxb.Text;
             businessContact.ContactPostcode = businesspostcodetxb.Text;
             dbConn.UpdateBusiness(businessContact);
