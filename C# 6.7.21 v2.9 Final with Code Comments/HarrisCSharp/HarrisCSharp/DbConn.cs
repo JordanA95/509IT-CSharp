@@ -126,7 +126,7 @@ namespace HarrisCSharp
                 return businessContactDt;
             }
         }
-        //Stored procedure for inserting a new Personal contact into the database.
+        //Stored procedure for inserting a new Personal contact into the database, using asynchronous programming commands async and await to run this procedure in a different thread to the main application.
         public async void InsertPersonal(PersonalContact personalContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -149,7 +149,7 @@ namespace HarrisCSharp
             }
         }
 
-        //Stored procedure for inserting a new Business contact into the database.
+        //Stored procedure for inserting a new Business contact into the database, using asynchronous programming commands async and await to run this procedure in a different thread to the main application.
         public async void InsertBusiness(BusinessContact businessContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -172,7 +172,7 @@ namespace HarrisCSharp
             }
         }
 
-        //Stored procedure for updating an existing Personal contact in the database.
+        //Stored procedure for updating an existing Personal contact in the database, using asynchronous programming commands async and await to run this procedure in a different thread to the main application.
         public async void UpdatePersonal(PersonalContact personalContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -196,7 +196,7 @@ namespace HarrisCSharp
             }
         }
 
-        //Stored procedure for updating an existing Business contact in the database.
+        //Stored procedure for updating an existing Business contact in the database, using asynchronous programming commands async and await to run this procedure in a different thread to the main application.
         public async void UpdateBusiness(BusinessContact businessContact)
         {
             using (var conn = new MySqlConnection(connstring))
@@ -220,7 +220,7 @@ namespace HarrisCSharp
             }
         }
 
-        //Stored procedure for deleting a Personal contact from the database using the id value.
+        //Stored procedure for deleting a Personal contact from the database using the id value, using asynchronous programming commands async and await to run this procedure in a different thread to the main application.
         public async void DeletePersonal(int id)
         {
             using (var conn = new MySqlConnection(connstring))

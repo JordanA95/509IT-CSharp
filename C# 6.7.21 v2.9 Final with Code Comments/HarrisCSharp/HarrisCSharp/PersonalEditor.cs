@@ -21,6 +21,7 @@ namespace HarrisCSharp
 
         private void PersonalEditor_Load(object sender, EventArgs e)
         {
+            //Upon load, initiate the selectAllPersonal stored procedure to get all records in the Personal table of the database.
             personaldgv.DataSource = dbConn.selectAllPersonal();
         }
 
@@ -31,10 +32,12 @@ namespace HarrisCSharp
             addnewpersonalbtn.Enabled = true;
             deleteselectedpersonalbtn.Enabled = true;
             refreshpersonalbtn.Enabled = true;
+            //When Refresh button presed, initialise selectAllPersonal stored procedure to get all records in the Personal table of the database.
         }
 
         private void personaldgv_CellClick(object sender, EventArgs e)
         {
+            //When a record in DataGridView is clicked on, each data field value populates the corresponding textbox.
             int index = Int32.Parse(personaldgv.SelectedCells[0].Value.ToString());
             personalfnametxb.Text = personaldgv.SelectedCells[1].Value.ToString();
             personallnametxb.Text = personaldgv.SelectedCells[2].Value.ToString();
@@ -48,6 +51,7 @@ namespace HarrisCSharp
 
         private void personaldgv_SelectionChanged(object sender, EventArgs e)
         {
+            //When a record in DataGridView is clicked on, each data field value populates the corresponding textbox.
             int index = Int32.Parse(personaldgv.SelectedCells[0].Value.ToString());
             personalfnametxb.Text = personaldgv.SelectedCells[1].Value.ToString();
             personallnametxb.Text = personaldgv.SelectedCells[2].Value.ToString();
@@ -58,9 +62,9 @@ namespace HarrisCSharp
             personalcitytxb.Text = personaldgv.SelectedCells[7].Value.ToString();
             personalpostcodetxb.Text = personaldgv.SelectedCells[8].Value.ToString();
         }
-        // code to tell button to take take text from respective fields and add data to database
         private void addpersonalbtn_Click(object sender, EventArgs e)
         {
+            //When addpersonalbtn button clicked, set the values of PersonalContact class variables to the value of the corresponding textbox. Then run the InsertPersonal stored procedure.
             PersonalContact personalContact = new PersonalContact();
             personalContact.ContactFName = personalfnametxb.Text;
             personalContact.ContactLName = personallnametxb.Text;
@@ -72,7 +76,7 @@ namespace HarrisCSharp
             personalContact.ContactPostcode = personalpostcodetxb.Text;
             dbConn.InsertPersonal(personalContact);
 
-            // Code to Enable/Disable the textboxes once button has been clicked
+            ///Disable all textboxes and buttons except for refreshpersonalbtn button.
             personalfnametxb.Enabled = false;
             personallnametxb.Enabled = false;
             personalphonetxb.Enabled = false;
@@ -82,7 +86,6 @@ namespace HarrisCSharp
             personalcitytxb.Enabled = false;
             personalpostcodetxb.Enabled = false;
 
-            //Code to Enable/Disable buttons
             savenewpersonalbtn.Enabled = false;
             updateselectedpersonalbtn.Enabled = false;
             saveselectedpersonaldbtn.Enabled = false;
@@ -92,7 +95,7 @@ namespace HarrisCSharp
             refreshpersonalbtn.Enabled = true;
             cancelbtn.Enabled = false;
 
-            //Code to Empty the text boxes once the fields have been added
+            //Enpty the value of all textboxes.
             personalfnametxb.Text = string.Empty;
             personallnametxb.Text = string.Empty;
             personalphonetxb.Text = string.Empty;
@@ -102,14 +105,17 @@ namespace HarrisCSharp
             personalcitytxb.Text = string.Empty;
             personalpostcodetxb.Text = string.Empty;
 
-            // Code to auto-refresh table
+            // Code to auto-refresh table.
             personaldgv.DataSource = dbConn.selectAllPersonal();
 
+            //Set the value of the statuslbl to -
             statuslbl.Text = "-";
         }
 
         private void updatepersonalbtn_Click(object sender, EventArgs e)
         {
+            //When updatepersonalbtn button clicked, set the value of the PersonalContact class variables to the values of the corresponding textboxes.
+            //Then run UpdatePersonal stored procedure. Then repopulate the DataGridiew by using the selectAllPersonal stored procedure.
             PersonalContact personalContact = new PersonalContact();
             personalContact.ContactFName = personalfnametxb.Text;
             personalContact.ContactLName = personallnametxb.Text;
@@ -123,6 +129,7 @@ namespace HarrisCSharp
             personaldgv.DataSource = dbConn.selectAllPersonal();
             int index = Int32.Parse(personaldgv.SelectedCells[0].Value.ToString());
 
+            //Enable all textboxes and relevant buttons.
             personalfnametxb.Enabled = true;
             personallnametxb.Enabled = true;
             personalphonetxb.Enabled = true;
@@ -139,11 +146,13 @@ namespace HarrisCSharp
             savenewpersonalbtn.Enabled = false;
             refreshpersonalbtn.Enabled = false;
             cancelbtn.Enabled = true;
+            //Set statuslbl label value to inform the user that they are updating a contact.
             statuslbl.Text = "You are updating an existing contact";
         }
 
         private void deletepersonalbtn_Click(object sender, EventArgs e)
         {
+            //Run the DeletePersonal stored procedure after a confirmation message is displayed and yes is selected.
             string message = "Are you sure?";
             string caption = "Are you sure you want to delete the selected contact?";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -161,6 +170,7 @@ namespace HarrisCSharp
 
         private void addnewpersonalbtn_Click(object sender, EventArgs e)
         {
+            //Clear and enable the textboxes and relevant buttons ready for adding a new contact.
             personalfnametxb.Enabled = true;
             personallnametxb.Enabled = true;
             personalphonetxb.Enabled = true;
@@ -187,11 +197,13 @@ namespace HarrisCSharp
             personaladdrline2txb.Text = string.Empty;
             personalcitytxb.Text = string.Empty;
             personalpostcodetxb.Text = string.Empty;
+            //Set the value of statuslbl label to inform the user that they are adding a new contact.
             statuslbl.Text = "You are adding a new contact";
         }
 
         private void saveselectedpersonaldbtn_Click(object sender, EventArgs e)
         {
+            //Preare for saving a contact to the database by setting the values of personalContact class to the values of the textboxes. Disable all buttons except for Update and AddNew. Then clear the textboxes.
             int index = Int32.Parse(personaldgv.SelectedCells[0].Value.ToString());
             PersonalContact personalContact = new PersonalContact();
             personalContact.ContactID = index;
@@ -203,9 +215,12 @@ namespace HarrisCSharp
             personalContact.ContactAddr2 = personaladdrline2txb.Text;
             personalContact.ContactCity = personalcitytxb.Text;
             personalContact.ContactPostcode = personalpostcodetxb.Text;
+            //Run the UpdatePersonal stored procedure.
             dbConn.UpdatePersonal(personalContact);
+            //Repopulate the values in personaldgv data grid view using the selectAllPersonal stored procedure.
             personaldgv.DataSource = dbConn.selectAllPersonal();
 
+            //Disable all textboxes.
             personalfnametxb.Enabled = false;
             personallnametxb.Enabled = false;
             personalphonetxb.Enabled = false;
@@ -215,6 +230,7 @@ namespace HarrisCSharp
             personalcitytxb.Enabled = false;
             personalpostcodetxb.Enabled = false;
 
+            //Disable all buttons except for refresh button to prompt the user to click refresh.
             savenewpersonalbtn.Enabled = false;
             updateselectedpersonalbtn.Enabled = false;
             saveselectedpersonaldbtn.Enabled = false;
@@ -224,6 +240,7 @@ namespace HarrisCSharp
             refreshpersonalbtn.Enabled = true;
             cancelbtn.Enabled = false;
 
+            //Empty the value of all textboxes and set the statuslbl label value to -.
             personalfnametxb.Text = string.Empty;
             personallnametxb.Text = string.Empty;
             personalphonetxb.Text = string.Empty;
@@ -237,6 +254,7 @@ namespace HarrisCSharp
 
         private void personaldgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //When personaldgv DataGridView is clicked, the seleted record values are converted to String.
             DataGridViewRow row = this.personaldgv.Rows[e.RowIndex];
 
             personalfnametxb.Text = row.Cells[1].Value.ToString();
@@ -251,6 +269,7 @@ namespace HarrisCSharp
 
         private void cancelbtn_Click(object sender, EventArgs e)
         {
+            //Cancel the adding or updating of a contact by clearing the value of the textboxes and resetting the buttons enabled.
             personalfnametxb.Text = string.Empty;
             personallnametxb.Text = string.Empty;
             personalphonetxb.Text = string.Empty;

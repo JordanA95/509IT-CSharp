@@ -1,5 +1,4 @@
-﻿//Version 1.2. Date Created: 16.6.21. Changes: Added Asynchronous programming functionality with async and await commands in DbConn.
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

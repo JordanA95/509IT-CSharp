@@ -10,7 +10,7 @@ namespace HarrisCSharp
 {
     public partial class BusinessEditor : Form
     {
-        //Initialise DbConn Class.
+        //Initialise DbConn Class for database connection
         DbConn dbConn = new DbConn();
 
         public BusinessEditor()
@@ -20,7 +20,7 @@ namespace HarrisCSharp
 
         private void BusinessEditor_Load(object sender, EventArgs e)
         {
-            //Upon load, initiate the selectAllBusiness procedure to get all records in the Business table of the database.
+            //Upon load, initiate the selectAllBusiness stored procedure to get all records in the Business table of the database.
             businessdgv.DataSource = dbConn.selectAllBusiness();
         }
 
@@ -76,7 +76,7 @@ namespace HarrisCSharp
             businessContact.ContactPostcode = businesspostcodetxb.Text;
             dbConn.InsertBusiness(businessContact);
 
-            //Disable all textboxes and buttons except for delete and add new buttons.
+            //Disable all textboxes and buttons except for refreshbusinessbtn button.
             businessfnametxb.Enabled = false;
             businesslnametxb.Enabled = false;
             businessphonetxb.Enabled = false;
@@ -104,7 +104,11 @@ namespace HarrisCSharp
             businessaddrline2txb.Text = string.Empty;
             businesscitytxb.Text = string.Empty;
             businesspostcodetxb.Text = string.Empty;
+            
+            //Code to auto-refresh table.
             businessdgv.DataSource = dbConn.selectAllBusiness();
+
+            //Set the value of the statuslbl to -
             statuslbl.Text = "-";
         }
 
@@ -142,6 +146,7 @@ namespace HarrisCSharp
             savenewbusinessbtn.Enabled = false;
             refreshbusinessbtn.Enabled = false;
             cancelbtn.Enabled = true;
+            //Set statuslbl label value to inform the user that they are updating a contact.
             statuslbl.Text = "You are updating an existing contact";
         }
 
@@ -192,12 +197,13 @@ namespace HarrisCSharp
             businessaddrline2txb.Text = string.Empty;
             businesscitytxb.Text = string.Empty;
             businesspostcodetxb.Text = string.Empty;
+            //Set the value of statuslbl label to inform the user that they are adding a new contact.
             statuslbl.Text = "You are adding a new contact";
         }
 
         private void saveselectedbusinessbtn_Click(object sender, EventArgs e)
         {
-            //Preare for saving a contact to the database by setting the values of businessContact class to the value of the textboxes. Disable all buttons except for Update and AddNew. Then clear the textboxes.
+            //Prepare for saving a contact to the database by setting the values of businessContact class to the values of the textboxes. Disable all buttons except for Update and AddNew. Then clear the textboxes.
             int index = Int32.Parse(businessdgv.SelectedCells[0].Value.ToString());
             BusinessContact businessContact = new BusinessContact();
             businessContact.ContactID = index;
@@ -209,9 +215,12 @@ namespace HarrisCSharp
             businessContact.ContactAddr2 = businessaddrline2txb.Text;
             businessContact.ContactCity = businesscitytxb.Text;
             businessContact.ContactPostcode = businesspostcodetxb.Text;
+            //Run the UpdateBusiness stored procedure.
             dbConn.UpdateBusiness(businessContact);
+            //Repopulate the values in businessdgv data grid view using the selectAllBusiness stored procedure.
             businessdgv.DataSource = dbConn.selectAllBusiness();
-            
+
+            //Disable all textboxes.
             businessfnametxb.Enabled = false;
             businesslnametxb.Enabled = false;
             businessphonetxb.Enabled = false;
@@ -221,6 +230,7 @@ namespace HarrisCSharp
             businesscitytxb.Enabled = false;
             businesspostcodetxb.Enabled = false;
 
+            //Disable all buttons except for refresh button to prompt the user to click refresh.
             savenewbusinessbtn.Enabled = false;
             updateselectedbusinessbtn.Enabled = false;
             saveselectedbusinessbtn.Enabled = false;
@@ -230,6 +240,7 @@ namespace HarrisCSharp
             refreshbusinessbtn.Enabled = true;
             cancelbtn.Enabled = false;
 
+            //Empty the value of all textboxes and set the statuslbl label value to -.
             businessfnametxb.Text = string.Empty;
             businesslnametxb.Text = string.Empty;
             businessphonetxb.Text = string.Empty;
@@ -243,7 +254,7 @@ namespace HarrisCSharp
 
         private void businessdgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //When DataGridView is clicked, the seleted record values are converted to String.
+            //When businessdgv DataGridView is clicked, the seleted record values are converted to String.
             DataGridViewRow row = this.businessdgv.Rows[e.RowIndex];
 
             businessfnametxb.Text = row.Cells[1].Value.ToString();
